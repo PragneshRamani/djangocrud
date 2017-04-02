@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <style>
+       #tb.table {
+    border-collapse: collapse;
+    width: 1000px;
+}
+        body{background: azure}
+    </style>
+    <title>EmployeeDetail</title>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Employee Information</a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'add-info' %}"><span class="glyphicon glyphicon-plus"></span> AddInfo</a></li>
+      <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<center>
+<table class="table table-striped" id="tb">
+  <thead>
+  <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for data in object_list %}
+    <tr>
+        <td><a href="{% url 'detail' data.id %}">{{ data.first_name }}</a></td>
+        <td>{{ data.last_name }}</td>
+        <td>{{ data.email }}</td>
+        <td>{{ data.mobile }}</td>
+        <td>{{ data.salary }}</td>
+        <td>
+            <a href="{% url 'update-info' data.id %}" class="btn btn-info btn-sm">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+            </td>
+        <td>
+        <form action="{% url 'delete-info' data.id %}" method="post">{% csrf_token %}
+            <input type="hidden" value="{{ data.id }}"/>
+            <button type="submit" class="btn btn-danger btn-sm">
+          <span class="glyphicon glyphicon-trash"></span>
+            </button></form></td>
+
+
+    </tr>
+
+{% endfor %}
+  </tbody>
+</table>
+</body>
+</html>

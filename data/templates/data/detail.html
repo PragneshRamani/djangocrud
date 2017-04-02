@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <style>
+        body{background: azure}
+       #tb.table {
+    border-collapse: collapse;
+    width: 450px;
+}
+        .mr{
+            padding: 10px;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Details of {{ information.first_name }}</a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'add-info' %}"><span class="glyphicon glyphicon-plus"></span> AddInfo</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<center>
+
+    <table class="table table-striped" id="tb" border="1">
+  <tbody>
+  <tr>
+      <td>First Name</td>
+      <td>{{ information.first_name }}</td>
+  </tr>
+  <tr>
+      <td>Last Name</td>
+      <td>{{ information.last_name }}</td>
+  </tr>
+  <tr>
+      <td>Email</td>
+      <td>{{ information.email }}</td>
+  </tr>
+  <tr>
+      <td>Mobile</td>
+      <td>{{ information.mobile }}</td>
+  </tr>
+  <tr>
+      <td>Salary</td>
+      <td>{{ information.salary }}</td>
+    </tr>
+
+
+
+  </tbody>
+    </table>
+<table>
+
+    <tr>
+        <td class="mr">
+    <a href="{% url 'update-info' information.id %}" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-pencil"></span> Edit
+    </a></td>
+        <td>
+            <form action="{% url 'delete-info' information.id %}" method="post">{% csrf_token %}
+            <input type="hidden" value="{{ information.id }}"/>
+            <button type="submit" class="btn btn-danger btn-lg">
+          <span class="glyphicon glyphicon-trash"></span> Delete
+            </button></form></td>
+    </tr>
+</table>
+
+</center>
+
+</body>
+</html>

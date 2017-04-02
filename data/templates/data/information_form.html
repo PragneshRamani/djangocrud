@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <title>Details</title>
+    <style>
+        body{background: azure}
+        #pa{
+            width:350px;
+			position: absolute;
+			left: 60%;
+			padding:30px;
+			margin:50px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Add Information</a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'add-info' %}"><span class="glyphicon glyphicon-plus"></span> AddInfo</a></li>
+      <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid">
+<div class="row">
+    <div class="col-sm-12 col-md-7">
+        <div class="panel panel-primary" id="pa">
+            <div class="panel-body">
+
+                <form class="form-horizontal" action="" method="post">
+                    {% csrf_token %}
+                    {% include 'data/form-template.html' %}
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+        </div>
+        </div>
+    </div>
+</div>
+    </div>
+</body>
+</html>

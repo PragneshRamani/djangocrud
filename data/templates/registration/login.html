@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <style>
+       #tb.table {
+    border-collapse: collapse;
+    width: 1000px;
+}
+        body{background:#E0FFFF}
+		#save_button {
+    width: 180px;
+	position: relative;
+	left:13%;
+	margin:5px;
+}
+h1{color:#663399}
+ #pa{
+            width:350px;
+			position: relative;
+			left: 37%;
+			top:35%;
+			paddig:30%;
+			margin:10%;
+        }
+		#fo{
+			margin:20px;
+		}
+    </style>
+    <title>EmployeeSystem</title>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Employee System</a>
+    </div>
+  </div>
+</nav>
+<center>
+<div class="container-fluid">
+<div class="row">
+    <div class="col-sm-12 col-md-7">
+        <div class="panel panel-primary" id="pa">
+            <div class="panel-body">
+
+				<h1>Login</h1>
+
+				{% if form.has_errors %}
+				<div class="text-danger">
+					<font color="red"><p >UserName and Password did not Matched Please Try again Later!!</p></font>
+				</div>
+				{% endif %}
+
+				<form method="post" action="" id="fo">{% csrf_token %}
+					{{ form.as_p }}
+					<input type="submit" class="btn btn-info btn-md" id="save_button" value="Login"/>
+
+				</form>
+			</div>
+        </div>
+    </div>
+</div>
+</div>
+</center>
+</body>
+
+</html>
