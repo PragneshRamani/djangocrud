@@ -10,6 +10,7 @@
     width: 1000px;
 }
         body{background: azure}
+		
     </style>
     <title>EmployeeDetail</title>
 </head>
@@ -17,7 +18,8 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Employee Information</a>
+	<a class="navbar-brand" href="{% url 'index' %}"><span class="glyphicon glyphicon-home"></span> Home</a>
+      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-info-sign"></span> Employee Information</a>
     </div>
 
     <ul class="nav navbar-nav navbar-right">
@@ -27,6 +29,24 @@
   </div>
 </nav>
 <center>
+<div class="table-responsive">
+<table class="table table-striped" id="tb">
+  <thead>
+  <tr>
+      <td><a href="{% url 'api' %}" class="btn btn-warning btn-sm">
+          <span></span>Get/POST API View</a></td>
+      <td><a href="{% url 'filter' %}" class="btn btn-warning btn-sm">
+          <span class="glyphicon glyphicon-filter"></span> Filter API View</a></td>
+      <td><a href="{% url 'search' %}" class="btn btn-warning btn-sm">
+          <span class="glyphicon glyphicon-search"></span> Search API View</a></td>
+    </tr>
+  </thead>
+</table>
+</div>
+
+
+
+<div class="table-responsive">
 <table class="table table-striped" id="tb">
   <thead>
   <tr>
@@ -50,6 +70,8 @@
           <span class="glyphicon glyphicon-pencil"></span>
         </a>
             </td>
+			<td><a href="{% url 'detailapi' data.id %}" class="btn btn-warning btn-sm">
+          <span></span>API View</a></th></td>
         <td>
         <form action="{% url 'delete-info' data.id %}" method="post">{% csrf_token %}
             <input type="hidden" value="{{ data.id }}"/>
@@ -63,5 +85,6 @@
 {% endfor %}
   </tbody>
 </table>
+</div>
 </body>
 </html>

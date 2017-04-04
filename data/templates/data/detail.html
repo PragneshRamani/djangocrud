@@ -20,7 +20,8 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Details of {{ information.first_name }}</a>
+	<a class="navbar-brand" href="{% url 'index' %}"><span class="glyphicon glyphicon-home"></span> Home</a>
+      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-info-sign"></span> Details of {{ information.first_name }}</a>
     </div>
 
     <ul class="nav navbar-nav navbar-right">
@@ -30,7 +31,7 @@
   </div>
 </nav>
 <center>
-
+<div class="table-responsive">
     <table class="table table-striped" id="tb" border="1">
   <tbody>
   <tr>
@@ -58,6 +59,8 @@
 
   </tbody>
     </table>
+	</div>
+	<div class="table-responsive">
 <table>
 
     <tr>
@@ -73,6 +76,7 @@
             </button></form></td>
     </tr>
 </table>
+</div>
 
 </center>
 

@@ -33,11 +33,13 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-	<a class="navbar-brand" href="{% url 'index' %}"><span class="glyphicon glyphicon-home"></span> Home</a>
-      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-plus"></span> Add Information</a>
+	  <a class="navbar-brand" href="{% url 'index' %}"><span class="glyphicon glyphicon-home"></span> Home</a>
+      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-pencil"></span> Update Information</a>
     </div>
 
     <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'add-info' %}"><span class="glyphicon glyphicon-plus"></span> AddInfo</a></li>
+	  
       <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
     </ul>
   </div>
@@ -48,7 +50,7 @@
     <div class="col-xs-12">
    
         <div class="panel panel-primary" id="pa">
-		<div class="panel-heading"><h2>AddInfo</h2></div>
+		<div class="panel-heading"><h2>UpdateInfo</h2></div>
             <div class="panel-body">
 
                 <form class="form-horizontal" action="" method="post">

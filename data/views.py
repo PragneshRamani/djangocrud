@@ -46,6 +46,7 @@ class InfoCreate(generic.CreateView):
 
 class InfoUpdate(generic.UpdateView):
     model = Information
+    template_name = 'data/update.html'
     fields = ['first_name', 'last_name', 'email', 'mobile', 'salary']
     success_url = reverse_lazy('index')
 
@@ -120,7 +121,7 @@ class FilterField(generics.ListAPIView):
     queryset = Information.objects.all()
     serializer_class = InformationSerializer
     filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
-    filter_fields = ('salary',)
+    filter_fields = ('salary','email',)
 
 
 
@@ -129,7 +130,7 @@ class InfoSearchView(generics.ListAPIView):
     queryset = Information.objects.all()
     serializer_class = InformationSerializer
     filter_backends = (filters.SearchFilter,)
-    search_fields = ("first_name","last_name")
+    search_fields = ("first_name","last_name","email")
 
 class InformationOrder(generics.ListAPIView):
     queryset = Information.objects.all()

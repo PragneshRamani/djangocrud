@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
        #tb.table {
     border-collapse: collapse;
@@ -13,20 +14,17 @@
 		#save_button {
     width: 180px;
 	position: relative;
-	left:13%;
+	
 	margin:5px;
 }
-h1{color:#663399}
+
  #pa{
             width:350px;
 			position: relative;
-			left: 37%;
-			top:35%;
-			paddig:30%;
-			margin:10%;
         }
-		#fo{
-			margin:20px;
+		
+		.jumbotron{
+			background-color:#E0FFFF;
 		}
     </style>
     <title>EmployeeSystem</title>
@@ -39,15 +37,18 @@ h1{color:#663399}
     </div>
   </div>
 </nav>
+<div class="jumbotron text-center">
 <center>
 <div class="container-fluid">
 <div class="row">
-    <div class="col-sm-12 col-md-7">
+    <div class="col-xs-12">
+   
         <div class="panel panel-primary" id="pa">
+		<div class="panel-heading"><h2>Login</h2></div>
             <div class="panel-body">
 
-				<h1>Login</h1>
-
+				
+				
 				{% if form.has_errors %}
 				<div class="text-danger">
 					<font color="red"><p >UserName and Password did not Matched Please Try again Later!!</p></font>
@@ -56,15 +57,16 @@ h1{color:#663399}
 
 				<form method="post" action="" id="fo">{% csrf_token %}
 					{{ form.as_p }}
-					<input type="submit" class="btn btn-info btn-md" id="save_button" value="Login"/>
+					<input type="submit" class="btn btn-primary btn-lg" id="save_button" value="Login"/>
 
 				</form>
-			</div>
-        </div>
+			
+    </div></div>
     </div>
 </div>
 </div>
 </center>
+</div>
 </body>
 
 </html>
